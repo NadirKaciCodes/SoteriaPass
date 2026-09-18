@@ -136,7 +136,70 @@ def edit_credential():
                             break
         
     
+def delete_credential():
+    passwords = load_passwords()
+    print("***Soteria Pass***")
+    print("***Delete a credential***")
+    print("Websites with saved passwords: ")
+    
+    i = 1
+    for website in passwords :
+        print(f"{i}| {website.capitalize()}")
+        i+=1
 
+    print("Please type out the url for the password")
+    website = input()
+
+    if website in passwords:
+            print(f"Accounts found for {website}")
+            i=1
+            for account in passwords[website]:
+                print(f"{i}| {account["username"]}")
+                i+=1
+
+            print("Enter ID/Username for Credential")
+            user_account = input()
+
+            for account in passwords[website]:
+                if user_account == account["username"]:
+                    print("Credential found, are you sure you want to delete it")
+                    print("1| Yes")
+                    print("2| No")
+
+                    answer = input()
+                    if answer == "1" :
+                        print("For security reasons we require your master password :")
+                        password_flag = False 
+                        attempt_counter = 0
+                        while not password_flag and attempt_counter < 3 :
+
+                            user_pass_attempt = input()
+                            password_flag = check_password(user_pass_attempt)
+                            attempt_counter += 1
+                            print(attempt_counter)
+                            if password_flag :
+                                break
+                            elif not password_flag and 1 <= attempt_counter <= 2 :
+                                print("Incorrect password,Try again")
+                                print(f"{3 - attempt_counter} attempts left")
+            
+                            else :
+                                print("Too many attempts, access denied")
+                                break
+                        if password_flag :
+                            passwords[website].remove(account)
+                            save_passwords(passwords)
+                            print("Credential Deleted")
+                            print("Press enter to continue")
+                            input()
+                            return
+                            
+
+
+    else :
+        print("No records found for this website/app")
+        print("Press Enter to continue")
+        input()
 
 def add_edit_password():
     while True :
@@ -157,7 +220,7 @@ def add_edit_password():
             placeholder = ""
         elif answer == "3" :
             #Deleting a credential code
-            c
+            delete_credential()
         elif answer == "4":
             break
 
