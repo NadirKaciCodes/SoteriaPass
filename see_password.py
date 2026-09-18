@@ -1,6 +1,5 @@
 
 def see_password():
-    import json
     from vault import load_passwords, save_passwords
     from master_password import check_password
 
