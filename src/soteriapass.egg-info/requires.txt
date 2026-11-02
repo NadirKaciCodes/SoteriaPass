@@ -1,0 +1,4 @@
+PySide6
+cryptography
+argon2-cffi
+platformdirs

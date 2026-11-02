@@ -1,0 +1,12 @@
+README.md
+pyproject.toml
+src/soteriapass/__init__.py
+src/soteriapass/main.py
+src/soteriapass.egg-info/PKG-INFO
+src/soteriapass.egg-info/SOURCES.txt
+src/soteriapass.egg-info/dependency_links.txt
+src/soteriapass.egg-info/requires.txt
+src/soteriapass.egg-info/top_level.txt
+src/soteriapass/storage/__init__.py
+src/soteriapass/storage/database.py
+src/soteriapass/storage/vault_repository.py
