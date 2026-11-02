@@ -1,0 +1,24 @@
+# Python
+__pychache__/
+*.py[cod]
+.venv/
+venv/
+*.egg_info
+
+#IDE
+.vscode/
+.idea/
+
+#Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+#Application data
+*.db
+*.sqlite
+*.sqlite3
+
+# Build files
+build/
+dist/
